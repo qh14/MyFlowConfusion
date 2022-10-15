@@ -5,6 +5,8 @@ import React, { Component } from 'react';
 import { DISHES } from './shared/dishes';
 import Main from './components/MainComponent';
 import './App.css'
+import { BrowserRouter as Router } from 'react-router-dom';
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -15,11 +17,12 @@ class App extends Component {
 
   render() {
     return (
-      <React.Fragment>
+      <Router>
+        <React.Fragment>
+          <Main dishes={this.state.dishes} />
+        </React.Fragment>
+      </Router>
 
-        <Main dishes={this.state.dishes} />
-
-      </React.Fragment>
     );
   }
 }
