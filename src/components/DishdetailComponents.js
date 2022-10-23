@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 
 function RenderDish({ dish }) {
     return (
-        <div className="col-12 col-md-5 m-1">
+        <div className="col-12">
             <Card>
                 <CardImg top src={dish.image} alt={dish.name} />
                 <CardBody>
@@ -22,7 +22,7 @@ function RenderDish({ dish }) {
 function RenderComments({ comments }) {
     if (comments != null) {
         return (
-            <div className="col-12 col-md-5 m-1">
+            <div className="col-12">
                 <h4>Comments</h4>
                 <ul className="list-unstyled">
                     {Array.isArray(comments) ? comments.map((comment) => {
@@ -44,24 +44,24 @@ function RenderComments({ comments }) {
     }
 }
 
-const DishDetail = (props) => {
-    if (props.dish != null) {
-        return (
-            <div className="container">
-                <div className="row">
-                    <RenderDish dish={props.dish} />
-                    <RenderComments comments={props.dish.comments} />
-                </div>
-            </div>
-        );
-    }
-    else {
-        return (
-            <div></div>
-        );
-    }
-}
-function RenderDetailAndComment(props) {
+// const DishDetail = (props) => {
+//     if (props.dish != null) {
+//         return (
+//             <div className="container">
+//                 <div className="row">
+//                     <RenderDish dish={props.dish} />
+//                     <RenderComments comments={props.dish.comments} />
+//                 </div>
+//             </div>
+//         );
+//     }
+//     else {
+//         return (
+//             <div></div>
+//         );
+//     }
+// }
+function RenderDetail(props) {
     return (
         <div className="container">
             <div className="row">
@@ -76,10 +76,10 @@ function RenderDetailAndComment(props) {
                 </div>
             </div>
             <div className="row">
-                <div className="col-12 col-md-5 m-1">
+                <div className="col-12 col-md-5">
                     <RenderDish dish={props.dish} />
                 </div>
-                <div className="col-12 col-md-5 m-1">
+                <div className="col-12 col-md-5">
                     <RenderComments comments={props.comments} />
                 </div>
             </div>
@@ -87,5 +87,5 @@ function RenderDetailAndComment(props) {
     );
 }
 
-export default RenderDetailAndComment;
+export default RenderDetail;
 

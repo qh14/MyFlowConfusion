@@ -6,6 +6,10 @@ import { DISHES } from './shared/dishes';
 import Main from './components/MainComponent';
 import './App.css'
 import { BrowserRouter as Router } from 'react-router-dom';
+import { Provider } from 'react-redux';
+import { ConfigureStore } from './redux/configureStore';
+
+const store = ConfigureStore();
 
 class App extends Component {
   constructor(props) {
@@ -17,11 +21,14 @@ class App extends Component {
 
   render() {
     return (
-      <Router>
-        <React.Fragment>
-          <Main dishes={this.state.dishes} />
-        </React.Fragment>
-      </Router>
+      <Provider store={store}>
+        <BrowserRouter>
+          <div className="App">
+            <Main />
+          </div>
+        </BrowserRouter>
+      </Provider>
+
 
     );
   }
