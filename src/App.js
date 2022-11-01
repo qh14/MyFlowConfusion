@@ -22,11 +22,11 @@ class App extends Component {
   render() {
     return (
       <Provider store={store}>
-        <BrowserRouter>
+        <Router>
           <div className="App">
             <Main />
           </div>
-        </BrowserRouter>
+        </Router>
       </Provider>
 
 
